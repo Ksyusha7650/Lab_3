@@ -1,32 +1,37 @@
-#include "Main.h"
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+#include "Points_array.h"
+#include "Interface.h"
+#include "Test.h"
 
 using namespace std;
 
 int main()
 {
+	HANDLE handle;
+	handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	setlocale(LC_ALL, "Russian");
 	greetings();
 	bool end = false;
-	int col = 0, mode = 0, row = 0, kind_sort = 0;
-	Matrix arr, t_arr;
-	Bubble_sort bubble;
-	Selection_sort selection;
-	Insert_sort insert;
-	Shell_sort shell;
-	Quick_sort quick;
+	Points_class point_arr;
+	res_points_class res_point_arr;
+	int size = 0, mode = 0, radius = 0;
+	Point center;
+	srand (static_cast<unsigned char>(time(NULL)));
 	do {
-
-	//	if (test_or_try()) run_tests();
-	//	else {
-			input_types(arr, t_arr, row, col, mode);
-			bubble.Sort(arr, t_arr, arr.get_row(), arr.get_col(), BUBBLE);
-			selection.Sort(arr, t_arr, arr.get_row(), arr.get_col(), SELECTION);
-			insert.Sort(arr, t_arr, arr.get_row(), arr.get_col(), INSERT);
-			shell.Sort(arr, t_arr, arr.get_row(), arr.get_col(), SHELL);
-			quick.Sort(arr, t_arr, arr.get_row(), arr.get_col(), QUICK);
-			results(bubble, selection, insert, shell, quick);
 	
-//		}
+		if (show_or_try()) run_tests();
+		else {
+			input_types(point_arr, res_point_arr, size, mode, radius, center);
+			output_arr(point_arr, radius, center);
+			if (mode != Actions::FILE_INPUT)
+			save_data(point_arr, radius, center, res_point_arr, size);
+			check_inclusion(point_arr, radius, center, res_point_arr);
+			res_output_arr(point_arr, res_point_arr, handle);
+			saving_results(point_arr, res_point_arr);
+		}
 		end = end_program();
 	} while (end != true);
 }

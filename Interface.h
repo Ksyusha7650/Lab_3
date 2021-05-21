@@ -1,34 +1,55 @@
 #pragma once
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <filesystem>
-#include "Main.h"
-#include "Array.h"
+#include <Windows.h>
 
-using namespace std;
-using namespace filesystem;
+class res_points_class;
+class Points_class;
+struct Point;
 
-class Bubble_sort;
-class Selection_sort;
-class Insert_sort;
-class Shell_sort;
-class Quick_sort;
+class output_file_points {
+private:
+	double* file_arr_point;
+	int file_arr_size;
+
+public:
+	double& operator[] (const int index) {
+		return file_arr_point[index];
+	}
+	int get_size() {
+		return file_arr_size;
+	}
+	void set_size(int size) {
+		file_arr_size = size;
+		file_arr_point = new double[file_arr_size];
+	}
+
+	~output_file_points() {
+		delete[] file_arr_point;
+	}
+};
 
 enum Actions {
-	END = 1, CONTINUE,
-	MANUAL = 1, FILE_INPUT,
+	END, CONTINUE,
+	MANUAL = 1, GENERATE, FILE_INPUT,
 	YES = 1, NO,
-	TEST = 1, TRY
+	QUANTITY_COORDINATES, SIZE_BYTE = 1,
+	NOT_FALL = 0, FALL, 
+	DATA, RESULT, READ_POINTS,
+	TEST = 1, TRY,
+	REWRITE = 0, REPEAT,
+	CENTER_POINT = -1
 };
 
 int get_int();
 double get_double();
 void greetings();
+Point get_point();
+void input_types(Points_class& arr_point, res_points_class& res_arr_point, int& size, int& mode, int& radius, Point& center);
+bool show_or_try();
 bool end_program();
-void result_file_name(string& name);
-bool test_or_try(void);
-void input_types(Matrix& arr, Matrix& t_arr, int& col, int& row, int& mode);
-void  output_arr(Matrix& arr);
-void results(Bubble_sort& bubble, Selection_sort& selection, Insert_sort& insert, Shell_sort& shell, Quick_sort& quick);
-//void results(string_convert& res_text, int& res_size_text);
+void size_arr(int& size, Points_class& point_arr, res_points_class& res_point_arr);
+void output_point(Point point);
+void output_arr(Points_class& point_arr, int radius, Point center);
+void res_output_arr(Points_class& point_arr, res_points_class& res_point_arr, HANDLE handle);
+void create_file(int mode, Points_class&  arr_point, res_points_class& res_arr_point, int& size, int& radius, Point& center);
+void saving_results(Points_class& point_arr, res_points_class& res_point_arr);
+void save_data(Points_class& point_arr, int radius, Point center, res_points_class& res_t, int size);
