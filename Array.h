@@ -19,8 +19,8 @@ public:
 		col = col_t;
 		row = row_t;
 		arr = new double*[row];
-		for (int i = 0; i < row; i++) {
-			arr[i] = new double[col];
+		for (int rows = 0; rows < row; rows++) {
+			arr[rows] = new double[col];
 		}
 	}
 
@@ -28,9 +28,9 @@ public:
 		row = new_arr.row;
 		col = new_arr.col;
 		set_size(col, row);
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				arr[i][j] = new_arr.arr[i][j];
+		for (int rows = 0; rows < row; rows++) {
+			for (int columns = 0; columns < col; columns++) {
+				arr[rows][columns] = new_arr.arr[rows][columns];
 			}
 		}
 	}
