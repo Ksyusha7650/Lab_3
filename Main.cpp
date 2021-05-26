@@ -7,7 +7,7 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	greetings();
 	bool end = false;
-	int col = 0, mode = 0, row = 0, kind_sort = 0;
+	int col = 0, mode = 0, row = 0;
 	Matrix arr, t_arr;
 	Bubble_sort bubble;
 	Selection_sort selection;
@@ -20,13 +20,14 @@ int main()
 	//	else {
 			input_types(arr, t_arr, row, col, mode);
 			bubble.Sort(arr, t_arr, arr.get_row(), arr.get_col(), BUBBLE);
-			selection.Sort(arr, t_arr, arr.get_row(), arr.get_col(), SELECTION);
 			insert.Sort(arr, t_arr, arr.get_row(), arr.get_col(), INSERT);
+			selection.Sort(arr, t_arr, arr.get_row(), arr.get_col(), SELECTION);
 			shell.Sort(arr, t_arr, arr.get_row(), arr.get_col(), SHELL);
 			quick.Sort(arr, t_arr, arr.get_row(), arr.get_col(), QUICK);
 			results(bubble, selection, insert, shell, quick);
 	//	}
 		end = end_program();
+		update_dates(bubble, insert, selection, shell, quick);
 	} while (end != true);
 }
 

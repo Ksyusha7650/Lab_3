@@ -15,6 +15,11 @@ public:
 	int get_permutations() {
 		return permutations;
 	}
+	void update_dates() {
+		comparisons = 0;
+		permutations = 0;
+	}
+
 };
 
  class Bubble_sort final: public ISort {
@@ -40,3 +45,5 @@ class Quick_sort final: public ISort {
 enum {
 	BUBBLE, SELECTION, INSERT, SHELL, QUICK
 };
+
+void update_dates(Bubble_sort& bubble, Insert_sort& insert, Selection_sort& selection, Shell_sort& shell, Quick_sort& quick);
