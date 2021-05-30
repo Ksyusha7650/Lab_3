@@ -1,21 +1,11 @@
-#include "Sorting.h"
+#include "sorting.h"
 
-void ISort::Sort(Matrix& arr, Matrix& t_arr, int row, int col, int kind_sort) {
-	switch (kind_sort) {
-	case BUBBLE: cout << "Пузырьковая сортировка." << endl;
-		break;
-	case SELECTION:cout << "Сортировка выборки." << endl;
-		break;
-	case INSERT: cout << "Сортировка вставки." << endl;
-		break;
-	case SHELL: cout << "Сортировка Шелла." << endl;
-		break;
-	case QUICK:cout << "Быстрая сортировка." << endl;
-		break;
-	}
-	cout << "- - - - - - - - - - - -" << endl;
+using namespace std;
+
+// types_sort[] = { Bubble_sort bubble, Insert_sort insert,Selection_sort selection, Shell_sort shell, Quick_sort quick };
+
+void Isort::sort(Matrix& arr, Matrix& t_arr, int row, int col) {
 	t_arr.copy(arr);
-	cout << "Каждый четный столбец по убыванию: " << endl;
 	const int odd_col = 2;
 	int odd_index = 0;
 	double* col_sort = new double[row];
@@ -27,7 +17,7 @@ void ISort::Sort(Matrix& arr, Matrix& t_arr, int row, int col, int kind_sort) {
 				odd_index++;
 
 		}
-		 Sorting(col_sort, odd_index, comparisons, permutations);
+		 sorting(col_sort, odd_index, c_comparisons, c_permutations);
 		 odd_index = 0;
 		  for (int columns = 0; columns < row; columns++) {
 			 t_arr(columns, index) = col_sort[odd_index];
@@ -36,24 +26,21 @@ void ISort::Sort(Matrix& arr, Matrix& t_arr, int row, int col, int kind_sort) {
 		 odd_index = 0;
 		}
 	}
-	output_arr(t_arr);
-	cout << "+ каждая строка по убыванию: " << endl;
 	for (int index = 0; index < row; index++) {
 		for (int columns = 0; columns < col; columns++) {
 			row_sort[columns] = t_arr(index, columns);
 		}
-		Sorting(row_sort, col, comparisons, permutations);
+		sorting(row_sort, col, c_comparisons, c_permutations);
 		for (int columns = 0; columns < col; columns++) {
 			t_arr(index, columns) = row_sort[columns];
 		}
 	}
-	output_arr(t_arr);
-	cout << "Количество перестановок: " << permutations << endl << "Количество сравнений: " << comparisons << endl;
-	cout << "- - - - - - - - - - - -"  << endl;
+	delete[] col_sort;
+	delete[] row_sort;
 
 }
 
-void Bubble_sort::Sorting(double arr[], int length, int& comparisons, int& permutations) {
+void Bubble_sort::sorting(double arr[], int length, int& comparisons, int& permutations) {
 	bool is_sorted = true;
 	for (int index = 0; index < length; index++) {
 		is_sorted = true;
@@ -69,7 +56,7 @@ void Bubble_sort::Sorting(double arr[], int length, int& comparisons, int& permu
 	}
 }
 
-void Insert_sort::Sorting(double arr[], int length, int& comparisons, int& permutations) {
+void Insert_sort::sorting(double arr[], int length, int& comparisons, int& permutations) {
 	int current_index = 0;
 	for (int index = 1; index < length; index++) {
 		comparisons++;
@@ -81,7 +68,7 @@ void Insert_sort::Sorting(double arr[], int length, int& comparisons, int& permu
 }
 
 
-void Selection_sort::Sorting(double arr[], int length, int& comparisons, int& permutations) {
+void Selection_sort::sorting(double arr[], int length, int& comparisons, int& permutations) {
 	for (int index = 0; index < length; index++) {
 		int biggest_index = index;
 		for (int current_index = index; current_index < length; current_index++) {
@@ -98,7 +85,7 @@ void Selection_sort::Sorting(double arr[], int length, int& comparisons, int& pe
 	comparisons-=length;
 }
 
-void Shell_sort::Sorting(double arr[], int length, int& comparisons, int& permutations) {
+void Shell_sort::sorting(double arr[], int length, int& comparisons, int& permutations) {
 	int second_element = length / 2;
 	while (second_element > 0) {
 		for (int index = second_element; index < length; index++) {
@@ -115,10 +102,10 @@ void Shell_sort::Sorting(double arr[], int length, int& comparisons, int& permut
 	}
 }
 
- void Quick_sort::Sorting(double arr[], int length, int& comparisons, int& permutations) {
+ void Quick_sort::sorting(double arr[], int length, int& comparisons, int& permutations) {
 	int left_border = 0;
 	int right_border = length - 1;
-	int key_element = arr[length / 2];
+	double key_element = arr[length / 2];
 	do {
 		while (arr[left_border] > key_element) {
 			comparisons++;
@@ -141,10 +128,10 @@ void Shell_sort::Sorting(double arr[], int length, int& comparisons, int& permut
 		
 	} while (left_border <= right_border);
 	if (right_border > 0) {
-		Sorting(arr, right_border + 1, comparisons, permutations);
+		sorting(arr, right_border + 1, comparisons, permutations);
 	}
 	if (left_border < length) {
-		Sorting(&arr[left_border], length - left_border, comparisons, permutations);
+		sorting(&arr[left_border], length - left_border, comparisons, permutations);
 	}
 }
 void update_dates(Bubble_sort& bubble, Insert_sort& insert, Selection_sort& selection, Shell_sort& shell, Quick_sort& quick) {

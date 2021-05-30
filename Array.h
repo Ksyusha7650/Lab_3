@@ -2,7 +2,7 @@
 class Matrix {
 private:
 	double** arr;
-	int col, row;
+	int c_col, c_row;
 
 public:
 
@@ -10,26 +10,26 @@ public:
 		return arr [row][col];
 	}
 	int get_col() {
-		return col;
+		return c_col;
 	}
 	int get_row() {
-		return row;
+		return c_row;
 	}
 	void set_size(int col_t, int row_t) {
-		col = col_t;
-		row = row_t;
-		arr = new double*[row];
-		for (int rows = 0; rows < row; rows++) {
-			arr[rows] = new double[col];
+		c_col = col_t;
+		c_row = row_t;
+		arr = new double*[c_row];
+		for (int rows = 0; rows < c_row; rows++) {
+			arr[rows] = new double[c_col];
 		}
 	}
 
 	void copy(Matrix& new_arr) {
-		row = new_arr.row;
-		col = new_arr.col;
-		set_size(col, row);
-		for (int rows = 0; rows < row; rows++) {
-			for (int columns = 0; columns < col; columns++) {
+		c_row = new_arr.c_row;
+		c_col = new_arr.c_col;
+		set_size(c_col, c_row);
+		for (int rows = 0; rows < c_row; rows++) {
+			for (int columns = 0; columns < c_col; columns++) {
 				arr[rows][columns] = new_arr.arr[rows][columns];
 			}
 		}
@@ -37,14 +37,17 @@ public:
 
 	~Matrix() {
 		{
-			for (int index = 0; index < row; index++) {
+			for (int index = 0; index < c_row; index++) {
 				delete[] arr[index];
 			}
 			delete[] arr;
-			col = -1;
-			row = -1;
+			c_col = -1;
+			c_row = -1;
 		}
 	}
 };
+
+
+
 	
 

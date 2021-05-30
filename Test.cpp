@@ -1,217 +1,196 @@
-//#include "Test.h"
-//
-//Matrix arr, exp_arr;
-//Bubble_sort bubble;
-//Selection_sort selection;
-//Insert_sort insert;
-//Shell_sort shell;
-//Quick_sort quick;
-//int col = 0, row = 0;
-//void update_dates(void) {
-//	
-//}
-//bool Test1(void) {
-//	update_dates();
-//	col = 2;
-//	row = 2;
-//	arr.set_size(col, row);
-//	exp_arr.set_size(col, row);
-//	arr(0, 0) = 1;
-//	arr(0, 1) = 2;
-//	arr(1, 0) = 3;
-//	arr(1, 1) = 4;
-//	exp_arr(0, 0) = 
-//	int check = 0;
-//	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-//	check_inclusion(point_arr, radius, center, res_point_arr);
-//	for (int i = 0; i < res_point_arr.get_size(); i++) {
-//		if (expected_res_point_arr[i] == res_point_arr[i])
-//			check++;
-//	}
-//	if (check == res_point_arr.get_size()) {
-//		return true;
-//	}
-//	else {
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED);
-//		cout << "Тест 1 не пройден!" << endl;
-//		output_arr(point_arr, radius, center);
-//		string expected_result, result;
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-//		for (int i = 0; i < res_point_arr.get_size(); i++) {
-//			if (expected_res_point_arr[i] == 1) expected_result = " попадает.";
-//			else expected_result = " не попадает.";
-//			cout << "Ожидалось, что точка " << i + 1 << expected_result << endl;
-//			if (res_point_arr[i] == 1) result = " попадает.";
-//			else result = " не попадает.";
-//			cout << "По прохождению теста точка " << i + 1 << result << endl;
-//		}
-//		return false;
-//	}
-//}
-//
-//bool Test2(void) {
-//	update_dates();
-//	quantity = 5;
-//	point_arr.set_size(quantity);
-//	res_point_arr.set_size(quantity);
-//	expected_res_point_arr.set_size(quantity);
-//	point_arr[0].x = 0;
-//	point_arr[0].y = 0;
-//	point_arr[0].z = 0;
-//	point_arr[1].x = 1;
-//	point_arr[1].y = 1;
-//	point_arr[1].z = 1;
-//	point_arr[2].x = 2;
-//	point_arr[2].y = 2;
-//	point_arr[2].z = 2;
-//	point_arr[3].x = 3;
-//	point_arr[3].y = 3;
-//	point_arr[3].z = 3;
-//	point_arr[4].x = 1.5;
-//	point_arr[4].y = 0;
-//	point_arr[4].z = 0;
-//	radius = 4;
-//	center.x = 0;
-//	center.y = 0;
-//	center.z = 0;
-//	expected_res_point_arr[0] = 1;
-//	expected_res_point_arr[1] = 1;
-//	expected_res_point_arr[2] = 1;
-//	expected_res_point_arr[3] = 0;
-//	expected_res_point_arr[4] = 1;
-//	int check = 0;
-//	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-//	check_inclusion(point_arr, radius, center, res_point_arr);
-//	for (int i = 0; i < res_point_arr.get_size(); i++) {
-//		if (expected_res_point_arr[i] == res_point_arr[i])
-//			check++;
-//	}
-//	if (check == res_point_arr.get_size()) {
-//		return true;
-//	}
-//	else {
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED);
-//		cout << "Тест 2 не пройден!" << endl;
-//		output_arr(point_arr, radius, center);
-//		string expected_result, result;
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-//		for (int i = 0; i < res_point_arr.get_size(); i++) {
-//			if (expected_res_point_arr[i] == 1) expected_result = " попадает.";
-//			else expected_result = " не попадает.";
-//			cout << "Ожидалось, что точка " << i + 1 << expected_result << endl;
-//			if (res_point_arr[i] == 1) result = " попадает.";
-//			else result = " не попадает.";
-//			cout << "По прохождению теста точка " << i + 1 << result << endl;
-//		}
-//		return false;
-//	}
-//}
-//
-//bool Test3(void) {
-//	update_dates();
-//	quantity = 3;
-//	point_arr.set_size(quantity);
-//	res_point_arr.set_size(quantity);
-//	expected_res_point_arr.set_size(quantity);
-//	point_arr[0].x = 0;
-//	point_arr[0].y = 0;
-//	point_arr[0].z = 0;
-//	point_arr[1].x = -1;
-//	point_arr[1].y = -1;
-//	point_arr[1].z = -1;
-//	point_arr[2].x = 2;
-//	point_arr[2].y = 2;
-//	point_arr[2].z = 2;
-//	radius = 2;
-//	center.x = 1;
-//	center.y = 1;
-//	center.z = 1;
-//	expected_res_point_arr[0] = 1;
-//	expected_res_point_arr[1] = 0;
-//	expected_res_point_arr[2] = 1;
-//	int check = 0;
-//	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-//	check_inclusion(point_arr, radius, center, res_point_arr);
-//	for (int i = 0; i < res_point_arr.get_size(); i++) {
-//		if (expected_res_point_arr[i] == res_point_arr[i])
-//			check++;
-//	}
-//	if (check == res_point_arr.get_size()) {
-//		return true;
-//	}
-//	else {
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED);
-//		cout << "Тест 3 не пройден!" << endl;
-//		output_arr(point_arr, radius, center);
-//		string expected_result, result;
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-//		for (int i = 0; i < res_point_arr.get_size(); i++) {
-//			if (expected_res_point_arr[i] == 1) expected_result = " попадает.";
-//			else expected_result = " не попадает.";
-//			cout << "Ожидалось, что точка " << i + 1 << expected_result << endl;
-//			if (res_point_arr[i] == 1) result = " попадает.";
-//			else result = " не попадает.";
-//			cout << "По прохождению теста точка " << i + 1 << result << endl;
-//		}
-//		return false;
-//	}
-//}
-//
-//bool Test4(void) {
-//	update_dates();
-//	quantity = 3;
-//	point_arr.set_size(quantity);
-//	res_point_arr.set_size(quantity);
-//	expected_res_point_arr.set_size(quantity);
-//	point_arr[0].x = 0;
-//	point_arr[0].y = 0;
-//	point_arr[0].z = 0;
-//	point_arr[1].x = -1;
-//	point_arr[1].y = -1;
-//	point_arr[1].z = -1;
-//	point_arr[2].x = 2;
-//	point_arr[2].y = 2;
-//	point_arr[2].z = 2;
-//	radius = 2;
-//	center.x = 100;
-//	center.y = 100;
-//	center.z = 100;
-//	expected_res_point_arr[0] = 0;
-//	expected_res_point_arr[1] = 0;
-//	expected_res_point_arr[2] = 0;
-//	int check = 0;
-//	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-//	check_inclusion(point_arr, radius, center, res_point_arr);
-//	for (int i = 0; i < res_point_arr.get_size(); i++) {
-//		if (expected_res_point_arr[i] == res_point_arr[i])
-//			check++;
-//	}
-//	if (check == res_point_arr.get_size()) {
-//		return true;
-//	}
-//	else {
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED);
-//		cout << "Тест 4 не пройден!" << endl;
-//		output_arr(point_arr, radius, center);
-//		string expected_result, result;
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-//		for (int i = 0; i < res_point_arr.get_size(); i++) {
-//			if (expected_res_point_arr[i] == 1) expected_result = " попадает.";
-//			else expected_result = " не попадает.";
-//			cout << "Ожидалось, что точка " << i + 1 << expected_result << endl;
-//			if (res_point_arr[i] == 1) result = " попадает.";
-//			else result = " не попадает.";
-//			cout << "По прохождению теста точка " << i + 1 << result << endl;
-//		}
-//		return false;
-//	}
-//}
-//
-//void run_tests(void) {
-//	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-//	if (Test1() && Test2() && Test3() && Test4()) {
-//		SetConsoleTextAttribute(handle, FOREGROUND_GREEN);
-//		cout << "Все тесты пройдены!" << endl;
-//		SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-//	}
-//}
+#include "Test.h"
+
+
+void update_dates(void) {
+	
+}
+bool Test1(Matrix& arr, Matrix& exp_arr, Matrix& arr_t) {
+	Bubble_sort bubble;
+	int col = 2;
+	int row = 2;
+	arr.set_size(col, row);
+	arr_t.copy(arr);
+	exp_arr.set_size(col, row);
+	arr(0, 0) = 1;
+	arr(0, 1) = 2;
+	arr(1, 0) = 3;
+	arr(1, 1) = 4;
+	exp_arr(0, 0) = 4;
+	exp_arr(0, 1) = 1;
+	exp_arr(1, 0) = 3;
+	exp_arr(1, 1) = 2;
+	bool correct = true;
+	bubble.sort(arr, arr_t, row, col);
+	for (int rows = 0; rows < arr_t.get_row(); rows++) {
+		for (int columns = 0; columns < arr_t.get_col(); columns++) {
+			if ((exp_arr(rows, columns) != arr_t(rows, columns)))
+				correct = false;
+		}
+	}
+	if (correct) {
+		return true;
+	}
+	else {
+		cout << "Тест пузырьковой сортировки не пройден!" << endl;
+		cout << "Ожидалась такая матрица: " << endl;
+		output_arr(exp_arr);
+		cout << "Получилась такая матрица: " << endl;
+		output_arr(arr_t);
+		return false;
+	}
+}
+
+bool Test2(Matrix& arr, Matrix& arr_t, Matrix& exp_arr ) {
+	Insert_sort insert;
+	int col = 2;
+	int row = 2;
+	arr.set_size(col, row);
+	arr_t.copy(arr);
+	exp_arr.set_size(col, row);
+	arr(0, 0) = 1;
+	arr(0, 1) = 2;
+	arr(1, 0) = 3;
+	arr(1, 1) = 4;
+	exp_arr(0, 0) = 4;
+	exp_arr(0, 1) = 1;
+	exp_arr(1, 0) = 3;
+	exp_arr(1, 1) = 2;
+	bool correct = true;
+	insert.sort(arr, arr_t, row, col);
+	for (int rows = 0; rows < arr_t.get_row(); rows++) {
+		for (int columns = 0; columns < arr_t.get_col(); columns++) {
+			if ((exp_arr(rows, columns) != arr_t(rows, columns)))
+				correct = false;
+		}
+	}
+	if (correct) {
+		return true;
+	}
+	else {
+		cout << "Тест сортировки вставок не пройден!" << endl;
+		cout << "Ожидалась такая матрица: " << endl;
+		output_arr(exp_arr);
+		cout << "Получилась такая матрица: " << endl;
+		output_arr(arr_t);
+		return false;
+	}
+}
+
+bool Test3(Matrix& arr, Matrix& arr_t, Matrix& exp_arr) {
+	Selection_sort selection;
+	int col = 2;
+	int row = 2;
+	arr.set_size(col, row);
+	arr_t.copy(arr);
+	exp_arr.set_size(col, row);
+	arr(0, 0) = 1;
+	arr(0, 1) = 2;
+	arr(1, 0) = 3;
+	arr(1, 1) = 4;
+	exp_arr(0, 0) = 4;
+	exp_arr(0, 1) = 1;
+	exp_arr(1, 0) = 3;
+	exp_arr(1, 1) = 2;
+	bool correct = true;
+	selection.sort(arr, arr_t, row, col);
+	for (int rows = 0; rows < arr_t.get_row(); rows++) {
+		for (int columns = 0; columns < arr_t.get_col(); columns++) {
+			if ((exp_arr(rows, columns) != arr_t(rows, columns)))
+				correct = false;
+		}
+	}
+	if (correct) {
+		return true;
+	}
+	else {
+		cout << "Тест сортировки выборки не пройден!" << endl;
+		cout << "Ожидалась такая матрица: " << endl;
+		output_arr(exp_arr);
+		cout << "Получилась такая матрица: " << endl;
+		output_arr(arr_t);
+		return false;
+	}
+}
+
+bool Test4(Matrix& arr, Matrix& arr_t, Matrix& exp_arr) {
+	Shell_sort shell;
+	int col = 2;
+	int row = 2;
+	arr.set_size(col, row);
+	arr_t.copy(arr);
+	exp_arr.set_size(col, row);
+	arr(0, 0) = 1;
+	arr(0, 1) = 2;
+	arr(1, 0) = 3;
+	arr(1, 1) = 4;
+	exp_arr(0, 0) = 4;
+	exp_arr(0, 1) = 1;
+	exp_arr(1, 0) = 3;
+	exp_arr(1, 1) = 2;
+	bool correct = true;
+	shell.sort(arr, arr_t, row, col);
+	for (int rows = 0; rows < arr_t.get_row(); rows++) {
+		for (int columns = 0; columns < arr_t.get_col(); columns++) {
+			if ((exp_arr(rows, columns) != arr_t(rows, columns)))
+				correct = false;
+		}
+	}
+	if (correct) {
+		return true;
+	}
+	else {
+		cout << "Тест сортировки Шелла не пройден!" << endl;
+		cout << "Ожидалась такая матрица: " << endl;
+		output_arr(exp_arr);
+		cout << "Получилась такая матрица: " << endl;
+		output_arr(arr_t);
+		return false;
+	}
+}
+
+bool Test5(Matrix& arr, Matrix& arr_t, Matrix& exp_arr) {
+	Quick_sort quick;
+	int col = 2;
+	int row = 2;
+	arr.set_size(col, row);
+	arr_t.copy(arr);
+	exp_arr.set_size(col, row);
+	arr(0, 0) = 1;
+	arr(0, 1) = 2;
+	arr(1, 0) = 3;
+	arr(1, 1) = 4;
+	exp_arr(0, 0) = 4;
+	exp_arr(0, 1) = 1;
+	exp_arr(1, 0) = 3;
+	exp_arr(1, 1) = 2;
+	bool correct = true;
+	quick.sort(arr, arr_t, row, col);
+	for (int rows = 0; rows < arr_t.get_row(); rows++) {
+		for (int columns = 0; columns < arr_t.get_col(); columns++) {
+			if ((exp_arr(rows, columns) != arr_t(rows, columns)))
+				correct = false;
+		}
+	}
+	if (correct) {
+		return true;
+	}
+	else {
+		cout << "Тест быстрой сортировки не пройден!" << endl;
+		cout << "Ожидалась такая матрица: " << endl;
+		output_arr(exp_arr);
+		cout << "Получилась такая матрица: " << endl;
+		output_arr(arr_t);
+		return false;
+	}
+}
+
+void run_tests(void) {
+	Matrix arr, exp_arr, arr_t;
+	Bubble_sort bubble;
+	Selection_sort selection;
+	Insert_sort insert;
+	Shell_sort shell;
+	Quick_sort quick;
+	if ((Test1(arr, arr_t, exp_arr)) && (Test2(arr, arr_t, exp_arr)) && (Test3(arr, arr_t, exp_arr)) &&
+		(Test4(arr, arr_t, exp_arr)) && (Test5(arr, arr_t, exp_arr))) cout << "Все тесты пройдены!" << endl;
+}

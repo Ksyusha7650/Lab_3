@@ -1,45 +1,52 @@
 #pragma once
 #include "Array.h"
 #include "Main.h"
+#include "Interface.h"
 
-class ISort {
+
+
+class Isort {
 protected:
-	int comparisons = 0;
-	int permutations = 0;
+	int c_comparisons = 0;
+	int c_permutations = 0;
+	virtual void sorting(double arr[], int length, int& comparisons, int& permutations) = 0;
 public:
-	void Sort(Matrix& arr, Matrix& t_arr, int row, int col, int kind_sort);
-	virtual void Sorting(double arr[], int length, int& comparisons, int& permutations) = 0;
+	void sort(Matrix& arr, Matrix& t_arr, int row, int col);
+	
 	int get_comparisons(){
-		return comparisons;
+		return c_comparisons;
 	}
 	int get_permutations() {
-		return permutations;
+		return c_permutations;
 	}
 	void update_dates() {
-		comparisons = 0;
-		permutations = 0;
+		c_comparisons = 0;
+		c_permutations = 0;
 	}
 
+	
 };
 
- class Bubble_sort final: public ISort {
-	void Sorting(double arr[], int length, int& comparisons, int& permutations);
+
+
+ class Bubble_sort final: public Isort {
+	void sorting(double arr[], int length, int& comparisons, int& permutations);
 };
 
-class Selection_sort final: public ISort {
-	void Sorting(double arr[], int length, int& comparisons, int& permutations);
+class Selection_sort final: public Isort {
+	void sorting(double arr[], int length, int& comparisons, int& permutations);
 };
 
-class Insert_sort final: public ISort {
-	void Sorting(double arr[], int length, int& comparisons, int& permutations);
+class Insert_sort final: public Isort {
+	void sorting(double arr[], int length, int& comparisons, int& permutations);
 };
 
-class Shell_sort final: public ISort {
-	void Sorting(double arr[], int length, int& comparisons, int& permutations);
+class Shell_sort final: public Isort {
+	void sorting(double arr[], int length, int& comparisons, int& permutations);
 };
 
-class Quick_sort final: public ISort {
-	void Sorting(double arr[], int length, int& comparisons, int& permutations);
+class Quick_sort final: public Isort {
+	void sorting(double arr[], int length, int& comparisons, int& permutations);
 };
 
 enum {
